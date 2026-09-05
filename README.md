@@ -2,20 +2,18 @@
 
 Marketplace Car Finder is a small Python project for searching used cars based on simple filters.
 
-## V0.4
+## V0.5
 
-Changes from V0.3:
+Changes from V0.4:
 
-* Added a `sortCars()` function
-* Added sorting by price
-* Added sorting by mileage
-* Added sorting by year
-* Added an option to keep the original order
-* Added validation for the sorting menu
+* Moved the sample car data out of `main.py`
+* Added a `cars.json` file
+* Added JSON loading with `json.load()`
+* The program now reads car data from `cars.json`
 
 Current features:
 
-* Stores 5 sample cars
+* Stores sample car data in `cars.json`
 * Lets the user search by make, maximum price, and maximum mileage
 * Uses a `searchCars()` function to find matching cars
 * Uses a `get_valid_int_input()` function for number validation
@@ -32,7 +30,6 @@ python3 main.py
 
 Future versions may include:
 
-* JSON file storage
 * Database support
 * REST API
 * Real car listing data
@@ -41,3 +38,4 @@ Future versions may include:
 ## Built With
 
 * Python
+* JSON
