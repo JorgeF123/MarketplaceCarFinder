@@ -42,22 +42,38 @@ def main():
 
     print("Welcome to Car Marketplace Search!")
 
-    userRequestedCar = input("What car brand are you looking for? ")
-    userMaxPrice = int(input("What is your maximum price? "))
-    userMaxMileage = int(input("What is your maximum mileage? "))
+    userRequestedCar = input("What car brand are you looking for? (e.g. Toyota, Ford, Tesla, BMW): ")
+    userMaxPrice = get_valid_int_input("What is your maximum price? ")
+    userMaxMileage = get_valid_int_input("What is your maximum mileage? ")
+    
 
     matchingCars = searchCars(userRequestedCar, userMaxPrice, userMaxMileage, carsOnMarket)
 
-    for car in matchingCars:
-        print(f"{car['year']} {car['make']} {car['model']} - ${car['price']} - {car['mileage']} miles")
+    if len(matchingCars) == 0:
+        print("Sorry, we couldn't find any cars that match your criteria.")
+    else:
+        for car in matchingCars:
+            print(f"{car['year']} {car['make']} {car['model']} - ${car['price']} - {car['mileage']} miles")
 
+def get_valid_int_input(prompt_message):
 
+    while True:
+        userInput = input(prompt_message)
+        try:
+            userInput = int(userInput)
+            if userInput <= 0:
+                print("Please enter a positive number.")
+                continue
+            return userInput
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
 
 def searchCars(make, maxPrice, maxMileage, cars):
 
     matchingCars = []
 
     for car in cars:
+
         if ((car["make"].lower() == make.lower())
             and (car["price"] <= maxPrice) 
             and (car["mileage"] <= maxMileage)

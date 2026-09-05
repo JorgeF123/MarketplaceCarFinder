@@ -2,19 +2,21 @@
 
 Marketplace Car Finder is a small Python project for searching used cars based on simple filters.
 
-## V0.2
+## V0.3
 
-Changes from V0.1:
+Changes from V0.2:
 
-* Added a `searchCars()` function
-* Moved the car filtering logic into the function
-* The function returns a list of matching cars
-* `main()` displays the matching cars
+* Added a `get_valid_int_input()` function
+* Added input validation for maximum price and maximum mileage
+* Prevents negative number inputs
+* Prevents invalid text input from crashing the program
+* Added a message when no cars match the search criteria
 
 Current features:
 
 * Stores 5 sample cars
-* Lets the user search by make set maximum price and maximum mileage
+* Lets the user search by make, maximum price, and maximum mileage
+* Uses a `searchCars()` function to find matching cars
 * Displays matching cars
 
 ## Run the Program
